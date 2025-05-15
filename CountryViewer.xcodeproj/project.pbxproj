@@ -9,14 +9,18 @@
 /* Begin PBXBuildFile section */
 		1826B83D2DD3BA140034A2FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1826B83C2DD3BA140034A2FF /* AppDelegate.swift */; };
 		1826B83F2DD3BA140034A2FF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1826B83E2DD3BA140034A2FF /* SceneDelegate.swift */; };
-		1826B8412DD3BA140034A2FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1826B8402DD3BA140034A2FF /* ViewController.swift */; };
-		1826B8442DD3BA140034A2FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1826B8422DD3BA140034A2FF /* Main.storyboard */; };
+		1826B8412DD3BA140034A2FF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1826B8402DD3BA140034A2FF /* MainViewController.swift */; };
 		1826B8472DD3BA140034A2FF /* CountryViewer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1826B8452DD3BA140034A2FF /* CountryViewer.xcdatamodeld */; };
 		1826B8492DD3BA150034A2FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1826B8482DD3BA150034A2FF /* Assets.xcassets */; };
 		1826B84C2DD3BA150034A2FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1826B84A2DD3BA150034A2FF /* LaunchScreen.storyboard */; };
 		1826B8572DD3BA160034A2FF /* CountryViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1826B8562DD3BA160034A2FF /* CountryViewerTests.swift */; };
 		1826B8612DD3BA160034A2FF /* CountryViewerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1826B8602DD3BA160034A2FF /* CountryViewerUITests.swift */; };
 		1826B8632DD3BA160034A2FF /* CountryViewerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1826B8622DD3BA160034A2FF /* CountryViewerUITestsLaunchTests.swift */; };
+		1826B8702DD3C1110034A2FF /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1826B86F2DD3C1110034A2FF /* DetailsViewController.swift */; };
+		18E85FD82DD4BC500090C0E2 /* CountryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E85FD72DD4BC500090C0E2 /* CountryManager.swift */; };
+		18E85FDA2DD4DDC40090C0E2 /* CountryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E85FD92DD4DDC40090C0E2 /* CountryData.swift */; };
+		18EBF1382DD510DB00FEB011 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EBF1372DD510DB00FEB011 /* CountryModel.swift */; };
+		18EBF13C2DD5437A00FEB011 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EBF13B2DD5437A00FEB011 /* CustomCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,8 +44,7 @@
 		1826B8392DD3BA130034A2FF /* CountryViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CountryViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1826B83C2DD3BA140034A2FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1826B83E2DD3BA140034A2FF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1826B8402DD3BA140034A2FF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1826B8432DD3BA140034A2FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1826B8402DD3BA140034A2FF /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1826B8462DD3BA140034A2FF /* CountryViewer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CountryViewer.xcdatamodel; sourceTree = "<group>"; };
 		1826B8482DD3BA150034A2FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1826B84B2DD3BA150034A2FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +54,11 @@
 		1826B85C2DD3BA160034A2FF /* CountryViewerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CountryViewerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1826B8602DD3BA160034A2FF /* CountryViewerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryViewerUITests.swift; sourceTree = "<group>"; };
 		1826B8622DD3BA160034A2FF /* CountryViewerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryViewerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1826B86F2DD3C1110034A2FF /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		18E85FD72DD4BC500090C0E2 /* CountryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryManager.swift; sourceTree = "<group>"; };
+		18E85FD92DD4DDC40090C0E2 /* CountryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryData.swift; sourceTree = "<group>"; };
+		18EBF1372DD510DB00FEB011 /* CountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
+		18EBF13B2DD5437A00FEB011 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +109,11 @@
 		1826B83B2DD3BA130034A2FF /* CountryViewer */ = {
 			isa = PBXGroup;
 			children = (
+				18E85FD62DD4BC420090C0E2 /* Model */,
+				18EBF13A2DD5433F00FEB011 /* Views */,
+				18EBF1392DD5358B00FEB011 /* Controllers */,
 				1826B83C2DD3BA140034A2FF /* AppDelegate.swift */,
 				1826B83E2DD3BA140034A2FF /* SceneDelegate.swift */,
-				1826B8402DD3BA140034A2FF /* ViewController.swift */,
-				1826B8422DD3BA140034A2FF /* Main.storyboard */,
 				1826B8482DD3BA150034A2FF /* Assets.xcassets */,
 				1826B84A2DD3BA150034A2FF /* LaunchScreen.storyboard */,
 				1826B84D2DD3BA150034A2FF /* Info.plist */,
@@ -128,6 +137,33 @@
 				1826B8622DD3BA160034A2FF /* CountryViewerUITestsLaunchTests.swift */,
 			);
 			path = CountryViewerUITests;
+			sourceTree = "<group>";
+		};
+		18E85FD62DD4BC420090C0E2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				18E85FD72DD4BC500090C0E2 /* CountryManager.swift */,
+				18E85FD92DD4DDC40090C0E2 /* CountryData.swift */,
+				18EBF1372DD510DB00FEB011 /* CountryModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		18EBF1392DD5358B00FEB011 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1826B8402DD3BA140034A2FF /* MainViewController.swift */,
+				1826B86F2DD3C1110034A2FF /* DetailsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		18EBF13A2DD5433F00FEB011 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				18EBF13B2DD5437A00FEB011 /* CustomCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,7 +272,6 @@
 			files = (
 				1826B84C2DD3BA150034A2FF /* LaunchScreen.storyboard in Resources */,
 				1826B8492DD3BA150034A2FF /* Assets.xcassets in Resources */,
-				1826B8442DD3BA140034A2FF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,9 +297,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				1826B8472DD3BA140034A2FF /* CountryViewer.xcdatamodeld in Sources */,
-				1826B8412DD3BA140034A2FF /* ViewController.swift in Sources */,
+				1826B8412DD3BA140034A2FF /* MainViewController.swift in Sources */,
+				18EBF1382DD510DB00FEB011 /* CountryModel.swift in Sources */,
+				18E85FDA2DD4DDC40090C0E2 /* CountryData.swift in Sources */,
+				18EBF13C2DD5437A00FEB011 /* CustomCell.swift in Sources */,
+				18E85FD82DD4BC500090C0E2 /* CountryManager.swift in Sources */,
 				1826B83D2DD3BA140034A2FF /* AppDelegate.swift in Sources */,
 				1826B83F2DD3BA140034A2FF /* SceneDelegate.swift in Sources */,
+				1826B8702DD3C1110034A2FF /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,14 +341,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1826B8422DD3BA140034A2FF /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1826B8432DD3BA140034A2FF /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1826B84A2DD3BA150034A2FF /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -444,11 +476,13 @@
 				DEVELOPMENT_TEAM = GJLTYPH729;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CountryViewer/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Country Viewer";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -456,9 +490,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Mohamad-Hammoud.CountryViewer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -472,11 +509,13 @@
 				DEVELOPMENT_TEAM = GJLTYPH729;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CountryViewer/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Country Viewer";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -484,9 +523,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Mohamad-Hammoud.CountryViewer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
