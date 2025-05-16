@@ -112,12 +112,8 @@
 				18E85FD62DD4BC420090C0E2 /* Model */,
 				18EBF13A2DD5433F00FEB011 /* Views */,
 				18EBF1392DD5358B00FEB011 /* Controllers */,
-				1826B83C2DD3BA140034A2FF /* AppDelegate.swift */,
-				1826B83E2DD3BA140034A2FF /* SceneDelegate.swift */,
-				1826B8482DD3BA150034A2FF /* Assets.xcassets */,
-				1826B84A2DD3BA150034A2FF /* LaunchScreen.storyboard */,
+				18EEA5D02DD6D9A2008A5CB1 /* Support Files */,
 				1826B84D2DD3BA150034A2FF /* Info.plist */,
-				1826B8452DD3BA140034A2FF /* CountryViewer.xcdatamodeld */,
 			);
 			path = CountryViewer;
 			sourceTree = "<group>";
@@ -164,6 +160,18 @@
 				18EBF13B2DD5437A00FEB011 /* CustomCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		18EEA5D02DD6D9A2008A5CB1 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				1826B83C2DD3BA140034A2FF /* AppDelegate.swift */,
+				1826B83E2DD3BA140034A2FF /* SceneDelegate.swift */,
+				1826B8482DD3BA150034A2FF /* Assets.xcassets */,
+				1826B84A2DD3BA150034A2FF /* LaunchScreen.storyboard */,
+				1826B8452DD3BA140034A2FF /* CountryViewer.xcdatamodeld */,
+			);
+			path = "Support Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

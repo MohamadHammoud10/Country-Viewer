@@ -117,7 +117,7 @@ class DetailsViewController: UIViewController {
         // Set the text alignment
         countryFullNameLabel.textAlignment = .left
         // Set the font color:
-        countryFullNameLabel.textColor = .gray
+        countryFullNameLabel.textColor = .white
         
         view.addSubview(countryFullNameLabel)
     }
@@ -145,7 +145,7 @@ class DetailsViewController: UIViewController {
         // Set the text alignment
         countryCapitalLabel.textAlignment = .right
         // Set the font color:
-        countryCapitalLabel.textColor = .gray
+        countryCapitalLabel.textColor = .white
         
         view.addSubview(countryCapitalLabel)
     }
@@ -173,7 +173,7 @@ class DetailsViewController: UIViewController {
         // Set the text alignment
         countryRegionLabel.textAlignment = .left
         // Set the font color:
-        countryRegionLabel.textColor = .gray
+        countryRegionLabel.textColor = .white
         
         view.addSubview(countryRegionLabel)
     }
@@ -201,7 +201,7 @@ class DetailsViewController: UIViewController {
         // Set the text alignment
         countryLanguagesLabel.textAlignment = .right
         // Set the font color:
-        countryLanguagesLabel.textColor = .gray
+        countryLanguagesLabel.textColor = .white
         
         view.addSubview(countryLanguagesLabel)
     }
@@ -229,7 +229,7 @@ class DetailsViewController: UIViewController {
         // Set the text alignment
         countryCurrencyNameLabel.textAlignment = .left
         // Set the font color:
-        countryCurrencyNameLabel.textColor = .gray
+        countryCurrencyNameLabel.textColor = .white
         
         view.addSubview(countryCurrencyNameLabel)
     }
@@ -257,7 +257,7 @@ class DetailsViewController: UIViewController {
         // Set the text alignment
         countryCurrencySymbolLabel.textAlignment = .right
         // Set the font color:
-        countryCurrencySymbolLabel.textColor = .gray
+        countryCurrencySymbolLabel.textColor = .white
         
         view.addSubview(countryCurrencySymbolLabel)
     }

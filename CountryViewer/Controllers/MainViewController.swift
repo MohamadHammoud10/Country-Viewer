@@ -6,11 +6,29 @@
 //
 
 import UIKit
+import CoreLocation
 
 class MainViewController: UIViewController {
 
     // Initialize the countryManager
     var countryManager = CountryManager()
+    
+    // Initialize the locationManager
+    let locationManager = CLLocationManager()
+    
+    // Initialize the glGeoCoder
+    let geocoder = CLGeocoder()
+    
+    // Variable to hold present location if available
+    var location: CLLocation?
+    
+    // Variable to hold the placemark
+    var placemark: CLPlacemark?
+
+    // Variables for holding the city and country the user is in
+    var city: String?
+    var country: String?
+    var countryShortName: String?
     
     // Initialize the stackView1
     let stackView1 = UIStackView()
@@ -77,7 +95,7 @@ class MainViewController: UIViewController {
     // Function to set up and configure the searchButton
     func setUpSearchButton() {
         // Set the background image
-        searchButton.setBackgroundImage(UIImage(systemName: "magnifyingglass")?.withTintColor(.black, renderingMode: .alwaysOriginal), for: .normal)
+        searchButton.setBackgroundImage(UIImage(systemName: "magnifyingglass")?.withTintColor(.label, renderingMode: .alwaysOriginal), for: .normal)
         
         // Add the action for pressing the search button
         searchButton.addTarget(self, action: #selector(searchCountry), for: .touchUpInside)
@@ -120,7 +138,7 @@ class MainViewController: UIViewController {
         
         // Set the border width and color
         tableView.layer.borderWidth = 2.0
-        tableView.layer.borderColor = UIColor.black.cgColor
+        tableView.layer.borderColor = UIColor.label.cgColor
         
         tableView.allowsSelection = true
         // Register the CustomCell to be used in the tableView
@@ -129,14 +147,25 @@ class MainViewController: UIViewController {
         stackView1.addSubview(tableView)
     }
     
+    // Function to set up and configure the locationManager
+    func setUpLocationManager() {
+        // Set the delegate of the locationManager
+        locationManager.delegate = self
+        // Prompt the user for location services permission
+        locationManager.requestWhenInUseAuthorization()
+        // Request the location
+        locationManager.requestLocation()
+        // Start updating locations
+        locationManager.startUpdatingLocation()
+    }
+    
     // Function to set up and configure the view
     func setUpView() {
         // Set the background color of the view
         view.backgroundColor = .systemBackground
-        //        title = "Main View Controller"
-        //        navigationController?.navigationBar.prefersLargeTitles = true
         
         // Set up and configure the UI elements
+        setUpLocationManager()
         setUpSearchTextField()
         setUpSearchButton()
         setUpStackView1()
@@ -348,50 +377,109 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         
         // Configure the first row
         if indexPath.row == 0 {
-            // Check if location services are enabled
-            // ...
             
-            // Configure the first row using the hardcoded data since location services are disabled
-            DispatchQueue.main.async {
-                // Display the flag image from the url
-                let url = URL(string: "https://flagcdn.com/w320/lb.png")
-                let data = try? Data(contentsOf: url!)
+            // Check if location services are enabled
+            let authStatus = CLLocationManager.authorizationStatus()
+            
+            // If the status is not determined, use the hardcoded data and
+            // prompt the user to enable location services
+            if authStatus == .notDetermined {
+                // Configure the first row using the hardcoded data since location services are disabled
+                DispatchQueue.main.async {
+                    // Display the flag image from the url
+                    let url = URL(string: "https://flagcdn.com/w320/lb.png")
+                    let data = try? Data(contentsOf: url!)
+
+                    if let imageData = data {
+                        let image = UIImage(data: imageData)
+                        // Call the function that configures the cell
+                        cell.configure(with: image!, countryName: "Lebanon", countryOfficialName: "Lebanese Republic", capitalName: "Beirut", cca2: "LB", currencyName: "Lebanese Pound", currencySymbol: "ل.ل", region: "Asia", languages: ["Arabic, French"])
+                        // Save the details to be passed on to the details page
+                        cell.officialName = "Lebanese Republic"
+                        cell.region = "Asia"
+                        cell.languages = ["Arabic, French"]
+                        cell.flagImageURL = "https://flagcdn.com/w320/lb.png"
+                    } else {
+                        // Load the default placeholder flag image
+                        // Call the function that configures the cell
+                        cell.configure(with: UIImage(systemName: "flag")!, countryName: "Lebanon", countryOfficialName: "Lebanese Republic", capitalName: "Beirut", cca2: "LB", currencyName: "Lebanese Pound", currencySymbol: "ل.ل", region: "Asia", languages: ["Arabic, French"])
+                        // Save the details to be passed on to the details page
+                        cell.officialName = "Lebanese Republic"
+                        cell.region = "Asia"
+                        cell.languages = ["Arabic, French"]
+                        cell.flagImageURL = "https://flagcdn.com/w320/lb.png"
+                        // Alert the user that the flag image could not be loaded
+                        let alert = UIAlertController(title: "The image could not be uploaded!", message: "Please check your internet connection and try again", preferredStyle: UIAlertController.Style.alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                }
+
+                locationManager.requestWhenInUseAuthorization()
+                locationManager.startUpdatingLocation()
+            }
+            
+            // If the location services are disabled, use the hardcoded data
+            if authStatus == .denied || authStatus == .restricted {
+                print("Location Services are Disabled!")
                 
-                if let imageData = data {
-                    let image = UIImage(data: imageData)
-                    // Call the function that configures the cell
-                    cell.configure(with: image!, countryName: "Lebanon", countryOfficialName: "Lebanese Republic", capitalName: "Beirut", cca2: "LB", currencyName: "Lebanese Pound", currencySymbol: "ل.ل", region: "Asia", languages: ["Arabic, French"])
-                    // Set the title of the country to "My Country"
-                    cell.countryTitleLabel.text = "My Country"
-                    // Hide the delete button in order to make the first row correspond to the default country
-                    // obtained through service location or the hardcoded
-                    cell.deleteButton.isHidden = true
-                    // Save the details to be passed on to the details page
-                    cell.officialName = "Lebanese Republic"
-                    cell.region = "Asia"
-                    cell.languages = ["Arabic, French"]
-                    cell.flagImageURL = "https://flagcdn.com/w320/lb.png"
-                } else {
-                    // Load the default placeholder flag image
-                    // Call the function that configures the cell
-                    cell.configure(with: UIImage(systemName: "flag")!, countryName: "Lebanon", countryOfficialName: "Lebanese Republic", capitalName: "Beirut", cca2: "LB", currencyName: "Lebanese Pound", currencySymbol: "ل.ل", region: "Asia", languages: ["Arabic, French"])
-                    // Set the title of the country to "My Country"
-                    cell.countryTitleLabel.text = "My Country"
-                    // Hide the delete button in order to make the first row correspond to the default country
-                    // obtained through service location or the hardcoded
-                    cell.deleteButton.isHidden = true
-                    // Save the details to be passed on to the details page
-                    cell.officialName = "Lebanese Republic"
-                    cell.region = "Asia"
-                    cell.languages = ["Arabic, French"]
-                    cell.flagImageURL = "https://flagcdn.com/w320/lb.png"
-                    // Alert the user that the flag image could not be loaded
-                    let alert = UIAlertController(title: "The image could not be uploaded!", message: "Please check your internet connection and try again", preferredStyle: UIAlertController.Style.alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
+                // Configure the first row using the hardcoded data since location services are disabled
+                DispatchQueue.main.async {
+                    // Display the flag image from the url
+                    let url = URL(string: "https://flagcdn.com/w320/lb.png")
+                    let data = try? Data(contentsOf: url!)
+                    
+                    if let imageData = data {
+                        let image = UIImage(data: imageData)
+                        // Call the function that configures the cell
+                        cell.configure(with: image!, countryName: "Lebanon", countryOfficialName: "Lebanese Republic", capitalName: "Beirut", cca2: "LB", currencyName: "Lebanese Pound", currencySymbol: "ل.ل", region: "Asia", languages: ["Arabic, French"])
+                        // Save the details to be passed on to the details page
+                        cell.officialName = "Lebanese Republic"
+                        cell.region = "Asia"
+                        cell.languages = ["Arabic, French"]
+                        cell.flagImageURL = "https://flagcdn.com/w320/lb.png"
+                    } else {
+                        // Load the default placeholder flag image
+                        // Call the function that configures the cell
+                        cell.configure(with: UIImage(systemName: "flag")!, countryName: "Lebanon", countryOfficialName: "Lebanese Republic", capitalName: "Beirut", cca2: "LB", currencyName: "Lebanese Pound", currencySymbol: "ل.ل", region: "Asia", languages: ["Arabic, French"])
+                        // Save the details to be passed on to the details page
+                        cell.officialName = "Lebanese Republic"
+                        cell.region = "Asia"
+                        cell.languages = ["Arabic, French"]
+                        cell.flagImageURL = "https://flagcdn.com/w320/lb.png"
+                        // Alert the user that the flag image could not be loaded
+                        let alert = UIAlertController(title: "The image could not be uploaded!", message: "Please check your internet connection and try again", preferredStyle: UIAlertController.Style.alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                    }
                 }
             }
+            
+            // If the location services are enabled, fetch the country using the user's lcoation
+            if authStatus == .authorizedWhenInUse || authStatus == .authorizedAlways {
+                print("Location Services are Enabled!")
+                print("Country of origin: \(country)")
+                
+                // Configure the first row according to the country the user is currently present in
+                // Check if country is empty
+                if country != nil {
+                    // Make an api request with the country name typed by the user
+                    countryManager.fetchCountry(countryName: country!)
+                }
+                
+            }
+            
+        } else {
+            // Empty other cells when configuring the first cell on app launch
+            cell.countryLabel.text = ""
+            cell.capitalLabel.text = ""
+            cell.currencyNameLabel.text = ""
+            cell.currencySymbolLabel.text = ""
+            cell.customImageView.image = UIImage(systemName: "flag")
+            cell.goToDetailsButton.isHidden = true
+            cell.deleteButton.isHidden = true
         }
+        
         return cell
     }
     
@@ -407,3 +495,52 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 
+// MARK: - CLLocationManagerDelegate
+
+extension MainViewController: CLLocationManagerDelegate {
+    
+    public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        // Retreive the last updated location
+        if let lastLocation = locations.last {
+            // Stop the locationManager
+            locationManager.stopUpdatingLocation()
+            
+            location = lastLocation
+            geocoder.reverseGeocodeLocation(lastLocation, completionHandler: { (placemarks, error) in
+                if error == nil, let placemark = placemarks, !placemark.isEmpty {
+                    self.placemark = placemark.last
+                }
+                self.parsePlacemarks()
+                self.tableView.reloadData()
+            })
+            
+        }
+    }
+    
+    public func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Location Manager Error: \(error)")
+        // Stop the locationManager
+        locationManager.stopUpdatingLocation()
+        locationManager.delegate = nil
+    }
+    
+    func parsePlacemarks() {
+       if let _ = location {
+            if let placemark = placemark {
+                if let city = placemark.locality, !city.isEmpty {
+                    self.city = city
+                }
+                if let country = placemark.country, !country.isEmpty {
+
+                    self.country = country
+                }
+                if let countryShortName = placemark.isoCountryCode, !countryShortName.isEmpty {
+
+                    self.countryShortName = countryShortName
+                }
+            }
+        } else {
+        }
+    }
+    
+}

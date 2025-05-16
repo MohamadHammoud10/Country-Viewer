@@ -30,7 +30,7 @@ class CustomCell: UITableViewCell {
         // Set the default image placeholder
         imageView.image = UIImage(systemName: "flag")
         // Set the tint color
-        imageView.tintColor = .black
+        imageView.tintColor = .label
         
         // Make the imageView round
         imageView.layer.cornerRadius = 30
@@ -47,7 +47,7 @@ class CustomCell: UITableViewCell {
         let label = UILabel()
         
         // Set the text color
-        label.textColor = .black
+        label.textColor = .label
         // Set the text alignment
         label.textAlignment = .center
         // Set the font
@@ -63,7 +63,7 @@ class CustomCell: UITableViewCell {
         let label = UILabel()
         
         // Set the text color
-        label.textColor = .black
+        label.textColor = .label
         // Set the text alignment
         label.textAlignment = .center
         // Set the font
@@ -79,7 +79,7 @@ class CustomCell: UITableViewCell {
         let label = UILabel()
         
         // Set the text color
-        label.textColor = .black
+        label.textColor = .label
         // Set the text alignment
         label.textAlignment = .center
         // Set the font
@@ -95,7 +95,7 @@ class CustomCell: UITableViewCell {
         let label = UILabel()
         
         // Set the text color
-        label.textColor = .black
+        label.textColor = .label
         // Set the text alignment
         label.textAlignment = .center
         // Set the font
@@ -111,7 +111,7 @@ class CustomCell: UITableViewCell {
         let label = UILabel()
         
         // Set the text color
-        label.textColor = .black
+        label.textColor = .label
         // Set the text alignment
         label.textAlignment = .center
         // Set the font
@@ -127,7 +127,7 @@ class CustomCell: UITableViewCell {
         let label = UILabel()
         
         // Set the text color
-        label.textColor = .black
+        label.textColor = .label
         // Set the text alignment
         label.textAlignment = .center
         // Set the font
@@ -148,7 +148,7 @@ class CustomCell: UITableViewCell {
         // Set the background image of the button
         button.setBackgroundImage(UIImage(systemName: "trash"), for: .normal)
         // Set the tint color
-        button.tintColor = .black
+        button.tintColor = .label
         
         // Add the action for pressing the search button
         button.addTarget(self, action: #selector(deleteCountry), for: .touchUpInside)
@@ -181,7 +181,7 @@ class CustomCell: UITableViewCell {
         // Set the background image of the button
         button.setBackgroundImage(UIImage(systemName: "arrow.forward"), for: .normal)
         // Set the tint color
-        button.tintColor = .black
+        button.tintColor = .label
         
         // Add the action for pressing the search button
         button.addTarget(self, action: #selector(goToDetails), for: .touchUpInside)
@@ -310,10 +310,10 @@ class CustomCell: UITableViewCell {
         
         // Draw a vertical line in the center of the cell
         let lineView1 = UIView(frame: CGRectMake(-0.5, 0, 1, 28.125))
-        lineView1.backgroundColor = UIColor.black
+        lineView1.backgroundColor = UIColor.label
         self.currencyNameLabel.addSubview(lineView1)
         let lineView2 = UIView(frame: CGRectMake(-0.5, 0, 1, 28.125))
-        lineView2.backgroundColor = UIColor.black
+        lineView2.backgroundColor = UIColor.label
         self.currencySymbolLabel.addSubview(lineView2)
         
         // Draw the horizontal line
