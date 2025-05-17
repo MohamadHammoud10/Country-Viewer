@@ -17,6 +17,8 @@ class CustomCell: UITableViewCell {
     var region: String?
     // Variable to hold the languages to be passed on to the details page
     var languages: [String]?
+    // Variable to hold the capital city name to be passed on to the details page
+    var capital: String?
     
     // Initialize the class identifier
     static let identifier = "CustomCell"
@@ -70,6 +72,8 @@ class CustomCell: UITableViewCell {
         label.font = .systemFont(ofSize: 12, weight: .light)
         // Set the default text as empty
         label.text = ""
+        // Adjust font size to fit if the text is too large
+        label.adjustsFontSizeToFitWidth = true
         
         return label
     }()
@@ -86,6 +90,8 @@ class CustomCell: UITableViewCell {
         label.font = .systemFont(ofSize: 12, weight: .light)
         // Set the default text as empty
         label.text = ""
+        // Adjust font size to fit if the text is too large
+        label.adjustsFontSizeToFitWidth = true
         
         return label
     }()
@@ -118,6 +124,8 @@ class CustomCell: UITableViewCell {
         label.font = .systemFont(ofSize: 12, weight: .light)
         // Set the default text as empty
         label.text = ""
+        // Adjust font size to fit if the text is too large
+        label.adjustsFontSizeToFitWidth = true
         
         return label
     }()
@@ -196,7 +204,7 @@ class CustomCell: UITableViewCell {
         // Pass over the data on to the detailsVC
         detailsVC.flagImageURL = flagImageURL
         detailsVC.countryName = self.countryLabel.text
-        detailsVC.countryCapitalCity = self.capitalLabel.text?.components(separatedBy: ",").first
+        detailsVC.countryCapitalCity = capital
         detailsVC.countryCurrencyName = self.currencyNameLabel.text
         detailsVC.countryCurrencySymbol = self.currencySymbolLabel.text
         detailsVC.countryOfficialName = officialName
@@ -232,6 +240,9 @@ class CustomCell: UITableViewCell {
         // Unhide the go and delete buttons
         self.goToDetailsButton.isHidden = false
         self.deleteButton.isHidden = false
+        
+        // Save the capital city without the cca2
+        capital = capitalName
         
         // Save the data to UserDefaults
         UserDefaults.standard.set(true, forKey: "HasData")
@@ -282,18 +293,18 @@ class CustomCell: UITableViewCell {
             countryLabel.heightAnchor.constraint(equalToConstant: 28.125),
             countryLabel.topAnchor.constraint(equalTo: self.capitalLabel.bottomAnchor),
             
-            currencyTitleLabel.leadingAnchor.constraint(equalTo: self.contentView.centerXAnchor),
-            currencyTitleLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -84),
+            currencyTitleLabel.leadingAnchor.constraint(equalTo: self.contentView.centerXAnchor, constant: 16),
+            currencyTitleLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -38),
             currencyTitleLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 28.125/3),
             currencyTitleLabel.heightAnchor.constraint(equalToConstant: 28.125),
             
-            currencyNameLabel.leadingAnchor.constraint(equalTo: self.contentView.centerXAnchor),
-            currencyNameLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -68),
+            currencyNameLabel.leadingAnchor.constraint(equalTo: self.contentView.centerXAnchor, constant: 16),
+            currencyNameLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -38),
             currencyNameLabel.topAnchor.constraint(equalTo: self.currencyTitleLabel.bottomAnchor),
             currencyNameLabel.heightAnchor.constraint(equalToConstant: 28.125),
             
-            currencySymbolLabel.leadingAnchor.constraint(equalTo: self.contentView.centerXAnchor),
-            currencySymbolLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -68),
+            currencySymbolLabel.leadingAnchor.constraint(equalTo: self.contentView.centerXAnchor, constant: 16),
+            currencySymbolLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -38),
             currencySymbolLabel.heightAnchor.constraint(equalToConstant: 28.125),
             currencySymbolLabel.topAnchor.constraint(equalTo: self.currencyNameLabel.bottomAnchor),
             
@@ -309,10 +320,10 @@ class CustomCell: UITableViewCell {
         ])
         
         // Draw a vertical line in the center of the cell
-        let lineView1 = UIView(frame: CGRectMake(-0.5, 0, 1, 28.125))
+        let lineView1 = UIView(frame: CGRectMake(-8, 0, 0.5, 28.125))
         lineView1.backgroundColor = UIColor.label
         self.currencyNameLabel.addSubview(lineView1)
-        let lineView2 = UIView(frame: CGRectMake(-0.5, 0, 1, 28.125))
+        let lineView2 = UIView(frame: CGRectMake(-8, 0, 0.5, 28.125))
         lineView2.backgroundColor = UIColor.label
         self.currencySymbolLabel.addSubview(lineView2)
         
