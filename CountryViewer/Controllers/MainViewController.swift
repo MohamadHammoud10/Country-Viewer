@@ -275,7 +275,7 @@ extension MainViewController: CountryManagerDelegate {
                     let cell4 = self.tableView.cellForRow(at: NSIndexPath(row: 4, section: 0) as IndexPath) as! CustomCell
                     
                     // Check if the table is full
-                    if (cell1.countryLabel.text != "") && (cell2.countryLabel.text != "") && (cell3.countryLabel.text != "") && (cell4.countryLabel.text != "") {
+                    if (cell0.countryLabel.text != "") && (cell1.countryLabel.text != "") && (cell2.countryLabel.text != "") && (cell3.countryLabel.text != "") && (cell4.countryLabel.text != "") {
                         // Alert the user if the tableView is full
                         let alert = UIAlertController(title: "The list is Full!", message: "Please remove some countries before adding more", preferredStyle: UIAlertController.Style.alert)
                         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
