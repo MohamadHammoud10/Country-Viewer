@@ -32,26 +32,38 @@ class DetailsViewController: UIViewController {
     let countryNameLabel = UILabel()
     // Initialize the countryFullNameTitle
     let countryFullNameTitle = UILabel()
+    // Initialize the scrollView to hold the countryFullNameLabel to allow scrolling
+    let countryFullNameScrollView = UIScrollView()
     // Initialize the countryFullNameLabel
     let countryFullNameLabel = UILabel()
     // Initialize the countryCapitalTitle
     let countryCapitalTitle = UILabel()
+    // Initialize the scrollView to hold the countryCapitalLabel to allow scrolling
+    let countryCapitalScrollView = UIScrollView()
     // Initialize the countryCapitalLabel
     let countryCapitalLabel = UILabel()
     // Initialize the countryRegionTitle
     let countryRegionTitle = UILabel()
+    // Initialize the scrollView to hold the countryRegionLabel to allow scrolling
+    let countryRegionScrollView = UIScrollView()
     // Initialize the countryRegionLabel
     let countryRegionLabel = UILabel()
     // Initialize the countryLanguagesTitle
     let countryLanguagesTitle = UILabel()
+    // Initialize the scrollView to hold the countryLanguagesLabel to allow scrolling
+    let countryLanguagesScrollView = UIScrollView()
     // Initialize the countryLanguagesLabel
     let countryLanguagesLabel = UILabel()
     // Initialize the countryCurrencyNameTitle
     let countryCurrencyNameTitle = UILabel()
+    // Initialize the scrollView to hold the countryCurrencyNameLabel to allow scrolling
+    let countryCurrencyNameScrollView = UIScrollView()
     // Initialize the countryCurrencyNameLabel
     let countryCurrencyNameLabel = UILabel()
     // Initialize the countryCurrencySymbolTitle
     let countryCurrencySymbolTitle = UILabel()
+    // Initialize the scrollView to hold the countryCurrencySymbolLabel to allow scrolling
+    let countryCurrencySymbolScrollView = UIScrollView()
     // Initialize the countryCurrencySymbolLabel
     let countryCurrencySymbolLabel = UILabel()
     
@@ -101,11 +113,22 @@ class DetailsViewController: UIViewController {
         // Set the font size
         countryFullNameTitle.font = .systemFont(ofSize: 18, weight: .bold)
         // Set the text alignment
-        countryFullNameTitle.textAlignment = .left
+        countryFullNameTitle.textAlignment = .center
         // Set the font color:
         countryFullNameTitle.textColor = .black
         
         view.addSubview(countryFullNameTitle)
+    }
+    
+    // Function to set up and configure the countryFullNameScrollView
+    func setUpCountryFullNameScrollView() {
+        // Enable scrolling
+        countryFullNameScrollView.isScrollEnabled = true
+        // Set the content size
+        countryFullNameScrollView.contentSize = CGSize(width: 1000, height: 40)
+        countryFullNameScrollView.layoutIfNeeded()
+        
+        view.addSubview(countryFullNameScrollView)
     }
     
     // Function to set up and configure the countryFullNameLabel
@@ -115,11 +138,13 @@ class DetailsViewController: UIViewController {
         // Set the font size
         countryFullNameLabel.font = .systemFont(ofSize: 18, weight: .regular)
         // Set the text alignment
-        countryFullNameLabel.textAlignment = .left
+        countryFullNameLabel.textAlignment = .center
         // Set the font color:
         countryFullNameLabel.textColor = .white
+        // Set the number of lines
+        countryFullNameLabel.numberOfLines = 0
         
-        view.addSubview(countryFullNameLabel)
+        countryFullNameScrollView.addSubview(countryFullNameLabel)
     }
     
     // Function to set up and configure the countryCapitalTitle
@@ -129,11 +154,22 @@ class DetailsViewController: UIViewController {
         // Set the font size
         countryCapitalTitle.font = .systemFont(ofSize: 18, weight: .bold)
         // Set the text alignment
-        countryCapitalTitle.textAlignment = .right
+        countryCapitalTitle.textAlignment = .center
         // Set the font color:
         countryCapitalTitle.textColor = .black
         
         view.addSubview(countryCapitalTitle)
+    }
+    
+    // Function to set up and configure the countryCapitalcrollView
+    func setUpCountryCapitalScrollView() {
+        // Enable scrolling
+        countryCapitalScrollView.isScrollEnabled = true
+        // Set the content size
+        countryCapitalScrollView.contentSize = CGSize(width: 1000, height: 40)
+        countryCapitalScrollView.layoutIfNeeded()
+        
+        view.addSubview(countryCapitalScrollView)
     }
     
     // Function to set up and configure the countryCapitalLabel
@@ -143,11 +179,13 @@ class DetailsViewController: UIViewController {
         // Set the font size
         countryCapitalLabel.font = .systemFont(ofSize: 18, weight: .regular)
         // Set the text alignment
-        countryCapitalLabel.textAlignment = .right
+        countryCapitalLabel.textAlignment = .center
         // Set the font color:
         countryCapitalLabel.textColor = .white
+        // Set the number of lines
+        countryCapitalLabel.numberOfLines = 0
         
-        view.addSubview(countryCapitalLabel)
+        countryCapitalScrollView.addSubview(countryCapitalLabel)
     }
     
     // Function to set up and configure the countryRegionTitle
@@ -157,11 +195,22 @@ class DetailsViewController: UIViewController {
         // Set the font size
         countryRegionTitle.font = .systemFont(ofSize: 18, weight: .bold)
         // Set the text alignment
-        countryRegionTitle.textAlignment = .left
+        countryRegionTitle.textAlignment = .center
         // Set the font color:
         countryRegionTitle.textColor = .black
         
         view.addSubview(countryRegionTitle)
+    }
+    
+    // Function to set up and configure the countryRegionScrollView
+    func setUpCountryRegionScrollView() {
+        // Enable scrolling
+        countryRegionScrollView.isScrollEnabled = true
+        // Set the content size
+        countryRegionScrollView.contentSize = CGSize(width: 1000, height: 40)
+        countryRegionScrollView.layoutIfNeeded()
+        
+        view.addSubview(countryRegionScrollView)
     }
     
     // Function to set up and configure the countryRegionLabel
@@ -171,11 +220,13 @@ class DetailsViewController: UIViewController {
         // Set the font size
         countryRegionLabel.font = .systemFont(ofSize: 18, weight: .regular)
         // Set the text alignment
-        countryRegionLabel.textAlignment = .left
+        countryRegionLabel.textAlignment = .center
         // Set the font color:
         countryRegionLabel.textColor = .white
+        // Set the number of lines
+        countryRegionLabel.numberOfLines = 0
         
-        view.addSubview(countryRegionLabel)
+        countryRegionScrollView.addSubview(countryRegionLabel)
     }
     
     // Function to set up and configure the countryLanguagesTitle
@@ -185,11 +236,22 @@ class DetailsViewController: UIViewController {
         // Set the font size
         countryLanguagesTitle.font = .systemFont(ofSize: 18, weight: .bold)
         // Set the text alignment
-        countryLanguagesTitle.textAlignment = .right
+        countryLanguagesTitle.textAlignment = .center
         // Set the font color:
         countryLanguagesTitle.textColor = .black
         
         view.addSubview(countryLanguagesTitle)
+    }
+    
+    // Function to set up and configure the countryLanguagesScrollView
+    func setUpCountryLanguagesScrollView() {
+        // Enable scrolling
+        countryLanguagesScrollView.isScrollEnabled = true
+        // Set the content size
+        countryLanguagesScrollView.contentSize = CGSize(width: 1000, height: 40)
+        countryLanguagesScrollView.layoutIfNeeded()
+        
+        view.addSubview(countryLanguagesScrollView)
     }
     
     // Function to set up and configure the countryLanguagesLabel
@@ -199,11 +261,14 @@ class DetailsViewController: UIViewController {
         // Set the font size
         countryLanguagesLabel.font = .systemFont(ofSize: 18, weight: .regular)
         // Set the text alignment
-        countryLanguagesLabel.textAlignment = .right
+        countryLanguagesLabel.textAlignment = .center
         // Set the font color:
         countryLanguagesLabel.textColor = .white
+        // Set the number of lines
+        countryLanguagesLabel.numberOfLines = 0
         
-        view.addSubview(countryLanguagesLabel)
+        
+        countryLanguagesScrollView.addSubview(countryLanguagesLabel)
     }
     
     // Function to set up and configure the countryCurrencyeNameTitle
@@ -213,11 +278,22 @@ class DetailsViewController: UIViewController {
         // Set the font size
         countryCurrencyNameTitle.font = .systemFont(ofSize: 18, weight: .bold)
         // Set the text alignment
-        countryCurrencyNameTitle.textAlignment = .left
+        countryCurrencyNameTitle.textAlignment = .center
         // Set the font color:
         countryCurrencyNameTitle.textColor = .black
         
         view.addSubview(countryCurrencyNameTitle)
+    }
+    
+    // Function to set up and configure the countryCurrencyNameScrollView
+    func setUpCountryCurrencyNameScrollView() {
+        // Enable scrolling
+        countryCurrencyNameScrollView.isScrollEnabled = true
+        // Set the content size
+        countryCurrencyNameScrollView.contentSize = CGSize(width: 1000, height: 40)
+        countryCurrencyNameScrollView.layoutIfNeeded()
+        
+        view.addSubview(countryCurrencyNameScrollView)
     }
     
     // Function to set up and configure the countryCurrencyNameLabel
@@ -227,11 +303,13 @@ class DetailsViewController: UIViewController {
         // Set the font size
         countryCurrencyNameLabel.font = .systemFont(ofSize: 18, weight: .regular)
         // Set the text alignment
-        countryCurrencyNameLabel.textAlignment = .left
+        countryCurrencyNameLabel.textAlignment = .center
         // Set the font color:
         countryCurrencyNameLabel.textColor = .white
+        // Set the number of lines
+        countryCurrencyNameLabel.numberOfLines = 0
         
-        view.addSubview(countryCurrencyNameLabel)
+        countryCurrencyNameScrollView.addSubview(countryCurrencyNameLabel)
     }
     
     // Function to set up and configure the countryCurrencySymbolTitle
@@ -241,11 +319,22 @@ class DetailsViewController: UIViewController {
         // Set the font size
         countryCurrencySymbolTitle.font = .systemFont(ofSize: 18, weight: .bold)
         // Set the text alignment
-        countryCurrencySymbolTitle.textAlignment = .right
+        countryCurrencySymbolTitle.textAlignment = .center
         // Set the font color:
-        countryCurrencySymbolLabel.textColor = .black
+        countryCurrencySymbolTitle.textColor = .black
         
         view.addSubview(countryCurrencySymbolTitle)
+    }
+    
+    // Function to set up and configure the countryCurrencySymbolScrollView
+    func setUpCountryCurrencySymbolScrollView() {
+        // Enable scrolling
+        countryCurrencySymbolScrollView.isScrollEnabled = true
+        // Set the content size
+        countryCurrencySymbolScrollView.contentSize = CGSize(width: 1000, height: 40)
+        countryCurrencySymbolScrollView.layoutIfNeeded()
+        
+        view.addSubview(countryCurrencySymbolScrollView)
     }
     
     // Function to set up and configure the countryCurrencySymbolLabel
@@ -255,11 +344,13 @@ class DetailsViewController: UIViewController {
         // Set the font size
         countryCurrencySymbolLabel.font = .systemFont(ofSize: 18, weight: .regular)
         // Set the text alignment
-        countryCurrencySymbolLabel.textAlignment = .right
+        countryCurrencySymbolLabel.textAlignment = .center
         // Set the font color:
         countryCurrencySymbolLabel.textColor = .white
+        // Set the number of lines
+        countryCurrencySymbolLabel.numberOfLines = 0
         
-        view.addSubview(countryCurrencySymbolLabel)
+        countryCurrencySymbolScrollView.addSubview(countryCurrencySymbolLabel)
     }
     
     // Function to set up and configure the view
@@ -271,16 +362,22 @@ class DetailsViewController: UIViewController {
         setUpFlagImageView()
         setUpCountryNameLabel()
         setUpCountryFullNameTitle()
+        setUpCountryFullNameScrollView()
         setUpCountryFullNameLabel()
         setUpCountryCapitalTitle()
+        setUpCountryCapitalScrollView()
         setUpCountryCapitalLabel()
         setUpCountryRegionTitle()
+        setUpCountryRegionScrollView()
         setUpCountryRegionLabel()
         setUpCountrylanguagesTitle()
+        setUpCountryLanguagesScrollView()
         setUpCountryLanguagesLabel()
         setUpCountryCurrencyNameTitle()
+        setUpCountryCurrencyNameScrollView()
         setUpCountryCurrencyNameLabel()
         setUpCountryCurrencySymbolTitle()
+        setUpCountryCurrencySymbolScrollView()
         setUpCountryCurrencySymbolLabel()
         
         // Set the constraints
@@ -295,16 +392,22 @@ class DetailsViewController: UIViewController {
         flagImageView.translatesAutoresizingMaskIntoConstraints = false
         countryNameLabel.translatesAutoresizingMaskIntoConstraints = false
         countryFullNameTitle.translatesAutoresizingMaskIntoConstraints = false
+        countryFullNameScrollView.translatesAutoresizingMaskIntoConstraints = false
         countryFullNameLabel.translatesAutoresizingMaskIntoConstraints = false
         countryCapitalTitle.translatesAutoresizingMaskIntoConstraints = false
+        countryCapitalScrollView.translatesAutoresizingMaskIntoConstraints = false
         countryCapitalLabel.translatesAutoresizingMaskIntoConstraints = false
         countryRegionTitle.translatesAutoresizingMaskIntoConstraints = false
+        countryRegionScrollView.translatesAutoresizingMaskIntoConstraints = false
         countryRegionLabel.translatesAutoresizingMaskIntoConstraints = false
         countryLanguagesTitle.translatesAutoresizingMaskIntoConstraints = false
+        countryLanguagesScrollView.translatesAutoresizingMaskIntoConstraints = false
         countryLanguagesLabel.translatesAutoresizingMaskIntoConstraints = false
         countryCurrencyNameTitle.translatesAutoresizingMaskIntoConstraints = false
+        countryCurrencyNameScrollView.translatesAutoresizingMaskIntoConstraints = false
         countryCurrencyNameLabel.translatesAutoresizingMaskIntoConstraints = false
         countryCurrencySymbolTitle.translatesAutoresizingMaskIntoConstraints = false
+        countryCurrencySymbolScrollView.translatesAutoresizingMaskIntoConstraints = false
         countryCurrencySymbolLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -317,64 +420,94 @@ class DetailsViewController: UIViewController {
             countryNameLabel.topAnchor.constraint(equalTo: flagImageView.bottomAnchor, constant: 10),
             
             countryFullNameTitle.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            countryFullNameTitle.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             countryFullNameTitle.topAnchor.constraint(equalTo: countryNameLabel.bottomAnchor, constant: 20),
-            countryFullNameTitle.widthAnchor.constraint(equalToConstant: 200),
             countryFullNameTitle.heightAnchor.constraint(equalToConstant: 40),
             
-            countryFullNameLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            countryFullNameLabel.topAnchor.constraint(equalTo: countryFullNameTitle.bottomAnchor, constant: 10),
-            countryFullNameLabel.widthAnchor.constraint(equalToConstant: 200),
-            countryFullNameLabel.heightAnchor.constraint(equalToConstant: 40),
+            countryFullNameScrollView.leadingAnchor.constraint(equalTo: countryFullNameTitle.leadingAnchor),
+            countryFullNameScrollView.trailingAnchor.constraint(equalTo: countryFullNameTitle.trailingAnchor),
+            countryFullNameScrollView.topAnchor.constraint(equalTo: countryFullNameTitle.bottomAnchor, constant: 10),
+            countryFullNameScrollView.heightAnchor.constraint(equalToConstant: 40),
+
+            countryFullNameLabel.leadingAnchor.constraint(equalTo: countryFullNameScrollView.leadingAnchor),
+            countryFullNameLabel.trailingAnchor.constraint(equalTo: countryFullNameScrollView.trailingAnchor),
+            countryFullNameLabel.centerXAnchor.constraint(equalTo: countryFullNameScrollView.centerXAnchor),
+            countryFullNameLabel.centerYAnchor.constraint(equalTo: countryFullNameScrollView.centerYAnchor),
             
+            countryCapitalTitle.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             countryCapitalTitle.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
             countryCapitalTitle.topAnchor.constraint(equalTo: countryNameLabel.bottomAnchor, constant: 20),
-            countryCapitalTitle.widthAnchor.constraint(equalToConstant: 200),
             countryCapitalTitle.heightAnchor.constraint(equalToConstant: 40),
             
-            countryCapitalLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            countryCapitalLabel.topAnchor.constraint(equalTo: countryFullNameTitle.bottomAnchor, constant: 10),
-            countryCapitalLabel.widthAnchor.constraint(equalToConstant: 200),
-            countryCapitalLabel.heightAnchor.constraint(equalToConstant: 40),
+            countryCapitalScrollView.leadingAnchor.constraint(equalTo: countryCapitalTitle.leadingAnchor),
+            countryCapitalScrollView.trailingAnchor.constraint(equalTo: countryCapitalTitle.trailingAnchor),
+            countryCapitalScrollView.topAnchor.constraint(equalTo: countryCapitalTitle.bottomAnchor, constant: 10),
+            countryCapitalScrollView.heightAnchor.constraint(equalToConstant: 40),
+            
+            countryCapitalLabel.leadingAnchor.constraint(equalTo: countryCapitalScrollView.leadingAnchor),
+            countryCapitalLabel.trailingAnchor.constraint(equalTo: countryCapitalScrollView.trailingAnchor),
+            countryCapitalLabel.centerXAnchor.constraint(equalTo: countryCapitalScrollView.centerXAnchor),
+            countryCapitalLabel.centerYAnchor.constraint(equalTo: countryCapitalScrollView.centerYAnchor),
             
             countryRegionTitle.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            countryRegionTitle.topAnchor.constraint(equalTo: countryFullNameLabel.bottomAnchor, constant: 20),
-            countryRegionTitle.widthAnchor.constraint(equalToConstant: 200),
+            countryRegionTitle.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            countryRegionTitle.topAnchor.constraint(equalTo: countryFullNameScrollView.bottomAnchor, constant: 20),
             countryRegionTitle.heightAnchor.constraint(equalToConstant: 40),
             
-            countryRegionLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            countryRegionLabel.topAnchor.constraint(equalTo: countryRegionTitle.bottomAnchor, constant: 10),
-            countryRegionLabel.widthAnchor.constraint(equalToConstant: 200),
-            countryRegionLabel.heightAnchor.constraint(equalToConstant: 40),
+            countryRegionScrollView.leadingAnchor.constraint(equalTo: countryRegionTitle.leadingAnchor),
+            countryRegionScrollView.trailingAnchor.constraint(equalTo: countryRegionTitle.trailingAnchor),
+            countryRegionScrollView.topAnchor.constraint(equalTo: countryRegionTitle.bottomAnchor, constant: 10),
+            countryRegionScrollView.heightAnchor.constraint(equalToConstant: 40),
             
+            countryRegionLabel.leadingAnchor.constraint(equalTo: countryRegionScrollView.leadingAnchor),
+            countryRegionLabel.trailingAnchor.constraint(equalTo: countryRegionScrollView.trailingAnchor),
+            countryRegionLabel.centerXAnchor.constraint(equalTo: countryRegionScrollView.centerXAnchor),
+            countryRegionLabel.centerYAnchor.constraint(equalTo: countryRegionScrollView.centerYAnchor),
+            
+            countryLanguagesTitle.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             countryLanguagesTitle.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            countryLanguagesTitle.topAnchor.constraint(equalTo: countryCapitalLabel.bottomAnchor, constant: 20),
-            countryLanguagesTitle.widthAnchor.constraint(equalToConstant: 200),
+            countryLanguagesTitle.topAnchor.constraint(equalTo: countryCapitalScrollView.bottomAnchor, constant: 20),
             countryLanguagesTitle.heightAnchor.constraint(equalToConstant: 40),
             
-            countryLanguagesLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            countryLanguagesLabel.topAnchor.constraint(equalTo: countryLanguagesTitle.bottomAnchor, constant: 10),
-            countryLanguagesLabel.widthAnchor.constraint(equalToConstant: 200),
-            countryLanguagesLabel.heightAnchor.constraint(equalToConstant: 40),
+            countryLanguagesScrollView.leadingAnchor.constraint(equalTo: countryLanguagesTitle.leadingAnchor),
+            countryLanguagesScrollView.trailingAnchor.constraint(equalTo: countryLanguagesTitle.trailingAnchor),
+            countryLanguagesScrollView.topAnchor.constraint(equalTo: countryLanguagesTitle.bottomAnchor, constant: 10),
+            countryLanguagesScrollView.heightAnchor.constraint(equalToConstant: 40),
+            
+            countryLanguagesLabel.leadingAnchor.constraint(equalTo: countryLanguagesScrollView.leadingAnchor),
+            countryLanguagesLabel.trailingAnchor.constraint(equalTo: countryLanguagesScrollView.trailingAnchor),
+            countryLanguagesLabel.centerXAnchor.constraint(equalTo: countryLanguagesScrollView.centerXAnchor),
+            countryLanguagesLabel.centerYAnchor.constraint(equalTo: countryLanguagesScrollView.centerYAnchor),
             
             countryCurrencyNameTitle.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            countryCurrencyNameTitle.topAnchor.constraint(equalTo: countryRegionLabel.bottomAnchor, constant: 20),
-            countryCurrencyNameTitle.widthAnchor.constraint(equalToConstant: 200),
+            countryCurrencyNameTitle.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            countryCurrencyNameTitle.topAnchor.constraint(equalTo: countryRegionScrollView.bottomAnchor, constant: 20),
             countryCurrencyNameTitle.heightAnchor.constraint(equalToConstant: 40),
             
-            countryCurrencyNameLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            countryCurrencyNameLabel.topAnchor.constraint(equalTo: countryCurrencyNameTitle.bottomAnchor, constant: 10),
-            countryCurrencyNameLabel.widthAnchor.constraint(equalToConstant: 200),
-            countryCurrencyNameLabel.heightAnchor.constraint(equalToConstant: 40),
+            countryCurrencyNameScrollView.leadingAnchor.constraint(equalTo: countryCurrencyNameTitle.leadingAnchor),
+            countryCurrencyNameScrollView.trailingAnchor.constraint(equalTo: countryCurrencyNameTitle.trailingAnchor),
+            countryCurrencyNameScrollView.topAnchor.constraint(equalTo: countryCurrencyNameTitle.bottomAnchor, constant: 10),
+            countryCurrencyNameScrollView.heightAnchor.constraint(equalToConstant: 40),
             
+            countryCurrencyNameLabel.leadingAnchor.constraint(equalTo: countryCurrencyNameScrollView.leadingAnchor),
+            countryCurrencyNameLabel.trailingAnchor.constraint(equalTo: countryCurrencyNameScrollView.trailingAnchor),
+            countryCurrencyNameLabel.centerXAnchor.constraint(equalTo: countryCurrencyNameScrollView.centerXAnchor),
+            countryCurrencyNameLabel.centerYAnchor.constraint(equalTo: countryCurrencyNameScrollView.centerYAnchor),
+            
+            countryCurrencySymbolTitle.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             countryCurrencySymbolTitle.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            countryCurrencySymbolTitle.topAnchor.constraint(equalTo: countryLanguagesLabel.bottomAnchor, constant: 20),
-            countryCurrencySymbolTitle.widthAnchor.constraint(equalToConstant: 200),
+            countryCurrencySymbolTitle.topAnchor.constraint(equalTo: countryLanguagesScrollView.bottomAnchor, constant: 20),
             countryCurrencySymbolTitle.heightAnchor.constraint(equalToConstant: 40),
             
-            countryCurrencySymbolLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            countryCurrencySymbolLabel.topAnchor.constraint(equalTo: countryCurrencySymbolTitle.bottomAnchor, constant: 10),
-            countryCurrencySymbolLabel.widthAnchor.constraint(equalToConstant: 200),
-            countryCurrencySymbolLabel.heightAnchor.constraint(equalToConstant: 40)
+            countryCurrencySymbolScrollView.leadingAnchor.constraint(equalTo: countryCurrencySymbolTitle.leadingAnchor),
+            countryCurrencySymbolScrollView.trailingAnchor.constraint(equalTo: countryCurrencySymbolTitle.trailingAnchor),
+            countryCurrencySymbolScrollView.topAnchor.constraint(equalTo: countryCurrencySymbolTitle.bottomAnchor, constant: 10),
+            countryCurrencySymbolScrollView.heightAnchor.constraint(equalToConstant: 40),
+            
+            countryCurrencySymbolLabel.leadingAnchor.constraint(equalTo: countryCurrencySymbolScrollView.leadingAnchor),
+            countryCurrencySymbolLabel.trailingAnchor.constraint(equalTo: countryCurrencySymbolScrollView.trailingAnchor),
+            countryCurrencySymbolLabel.centerXAnchor.constraint(equalTo: countryCurrencySymbolScrollView.centerXAnchor),
+            countryCurrencySymbolLabel.centerYAnchor.constraint(equalTo: countryCurrencySymbolScrollView.centerYAnchor)
         ])
     }
     
